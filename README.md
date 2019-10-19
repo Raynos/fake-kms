@@ -30,7 +30,7 @@ async function test() {
   })
 
   // Should be `a secret text`
-  console.log('the text', data.PLaintext.toString())
+  console.log('the text', data.Plaintext.toString())
 
   await server.close()
 }
@@ -38,6 +38,15 @@ async function test() {
 process.on('unhandledRejection', (err) => { throw err })
 test()
 ```
+
+## Features
+
+Currently this `fake-kms` module only supports the `kms.decrypt()`
+method. Aka it has enough of an implementation to support
+calling `decrypt` on the `aws-sdk.KMS`.
+
+The other functionality can be added in the future, as needed.
+
 ## Docs :
 
 ### `const server = new FakeKMS(opts)`
