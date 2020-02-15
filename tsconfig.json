@@ -25,6 +25,7 @@
       "strict": true,
       "baseUrl": "./",
       "paths": {
+        "@pre-bundled/tape": ["./types/pre-bundled__tape"],
         "*" : ["./types/*"]
       },
       "strictNullChecks": true,
