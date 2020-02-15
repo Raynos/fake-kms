@@ -1,7 +1,7 @@
 'use strict';
 Object.defineProperty(exports, "__esModule", { value: true });
-const AWS = require("aws-sdk");
-const tape = require("tape");
+const AWS = require("@pre-bundled/aws-sdk");
+const tape = require("@pre-bundled/tape");
 const tapeCluster = require("tape-cluster");
 const index_1 = require("../src/index");
 class TestHarness {
