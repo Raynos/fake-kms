@@ -1,6 +1,6 @@
 'use strict';
 
-import * as AWS from '@pre-bundled/aws-sdk';
+import * as AWS from 'aws-sdk';
 import * as tape from '@pre-bundled/tape';
 import * as tapeCluster from 'tape-cluster';
 
