@@ -6,31 +6,35 @@
   "scripts": {
     "test": "npm run build && npm run tslint -s && npm run cover -s && npm run check -s",
     "unit-test": "node build/test/index.js",
-    "build": "tsc --pretty -p .",
-    "build:watch": "tsc --pretty -p . -w",
-    "tslint": "tslint -t stylish -p .",
-    "cover": "nyc --exclude build/test/**/*.js --reporter=html -- node ./build/test/index.js && nyc report",
+    "build": "npr tsc --pretty -p .",
+    "build:watch": "npr tsc --pretty -p . -w",
+    "tslint": "npr tslint -t stylish -p .",
+    "cover": "npr nyc --exclude build/test/**/*.js --reporter=html -- node ./build/test/index.js && npr nyc report",
     "check": "npm run check-cover -s && npm run type-coverage -s && npm run lint-types -s && npm run verify -s",
     "verify": "npm run verify-included -s",
-    "lint-types": "command ls ./types/ | xargs -I{} sh -c 'dtslint ./types/{} && echo linted types/{}'",
-    "type-coverage": "type-coverage --detail --strict --ignore-catch --at-least 100 --ignore-files=test/lambdas/hello.js",
-    "check-cover": "nyc check-coverage --branches=25 --lines=50 --functions=50",
+    "lint-types": "command ls ./types/ | xargs -I{} sh -c 'npr dtslint ./types/{} && echo linted types/{}'",
+    "type-coverage": "npr type-coverage --detail --strict --ignore-catch --at-least 100 --ignore-files=test/lambdas/hello.js",
+    "check-cover": "npr nyc check-coverage --branches=25 --lines=50 --functions=50",
     "verify-included": "bash scripts/verify-included.sh",
-    "view-cover": "opn ./coverage/index.html"
+    "view-cover": "npr opn ./coverage/index.html"
   },
   "dependencies": {},
-  "devDependencies": {
-    "@types/node": "12.0.2",
-    "aws-sdk": "2.549.0",
+  "binDependencies": {
     "dtslint": "github:Raynos/dtslint#v0.7.6-pin-typescript-2",
     "nyc": "13.3.0",
     "opn": "1.0.1",
-    "tape": "4.10.2",
-    "tape-cluster": "3.2.1",
     "tslint": "5.16.0",
     "tslint-microsoft-contrib": "6.2.0",
     "type-coverage": "2.0.1",
     "typescript": "3.4.5"
+  },
+  "devDependencies": {
+    "@pre-bundled/aws-sdk": "2.549.0",
+    "@pre-bundled/tape": "4.11.0",
+    "@types/node": "12.0.2",
+    "aws-sdk": "2.549.0",
+    "npm-bin-deps": "1.4.2",
+    "tape-cluster": "3.2.1"
   },
   "author": "Raynos <raynos2@gmail.com>",
   "repository": "git://github.com/Raynos/fake-kms.git",

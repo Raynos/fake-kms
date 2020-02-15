@@ -1,7 +1,7 @@
 // TypeScript Version: 3.0
 
-type TestCase = import('tape').TestCase
-type Test = import('tape').Test
+type TestCase = import('pre-bundled__tape').TestCase
+type Test = import('pre-bundled__tape').Test
 
 interface tapeClusterTestCase<Harness> {
   (harness: Harness, test: Test): void;
